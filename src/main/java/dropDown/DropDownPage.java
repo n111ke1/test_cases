@@ -1,8 +1,7 @@
 package dropDown;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selectors;
-import org.openqa.selenium.By;
+
 import static com.codeborne.selenide.Selenide.$x;
 
 public class DropDownPage {
@@ -29,7 +28,6 @@ public class DropDownPage {
         $x(selectFriendsLocator).shouldBe(Condition.visible).scrollTo().click();
         $x(selectFriendsLocator+"//*[contains(@class,'menu')]//*[@data-value='"+name+"']").click();
         $x(selectFriendsLocator+"//input[@value]").shouldHave(Condition.text(name));
-
     }
 
 }

@@ -14,6 +14,7 @@ public class Tests extends BaseTest {
    /**Test 1**/
     @Test
     public void checkTableData(){
+        new BaseTest().setUp("https://semantic-ui.com/collections/table.html");
         statusValue = new Table("Error")
                .getStatus("Jimmy");
         Assert.assertEquals(statusValue, "Cannot pull data");
@@ -30,7 +31,8 @@ public class Tests extends BaseTest {
     }
 
     @Test
-    public void checkWarningIcon(){
+    public void checkTableWarningIcon(){
+        new BaseTest().setUp("https://semantic-ui.com/collections/table.html");
         new Table("Warning").checkWarningsInRow("Jimmy");
         new Table("Warning").checkWarningsInRow("Jamie");
 
@@ -39,6 +41,7 @@ public class Tests extends BaseTest {
     /**Test 2**/
     @Test
     public void selectDropBox(){
+        new BaseTest().setUp("https://semantic-ui.com/modules/dropdown.html");
         new DropDownPage().chooseAndCheckInFirstSelector("Female");
         new DropDownPage().chooseAndCheckInSecondSelector("Male");
         new DropDownPage().chooseAndCheckInThirdSelector("christian");
@@ -47,9 +50,12 @@ public class Tests extends BaseTest {
 /**Test 3**/
 
 @Test
-    public void checkBoxSliderToggleTest(){
-//    new CheckBoxPage().clickOnCheckBox();
-    new CheckBoxPage().clickOnRadioBtn();
+    public void clickAndCheckSelectElement(){
+    new BaseTest().setUp("https://semantic-ui.com/modules/checkbox.html");
+    new CheckBoxPage().clickOnCheckBox();
+    new CheckBoxPage().clickOnRadioBtn("Once a day");
+    new CheckBoxPage().clickOnSlider();
+    new CheckBoxPage().clickOnToggle();
 }
 
 
