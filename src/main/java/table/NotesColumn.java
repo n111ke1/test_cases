@@ -14,8 +14,6 @@ public class NotesColumn extends Table {
         return  $x(notesLocator+"["+rowByName+"]").getText();
     }
 
-    public void warnings(){
 
-    }
 }
 

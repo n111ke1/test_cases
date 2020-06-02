@@ -8,15 +8,16 @@ import table.Table;
 import static com.codeborne.selenide.Selenide.open;
 
 public class BaseTest {
-
-    private String tableName;
+    String url = System.getProperty("baseUrl");
     private String tableUrl = "https://semantic-ui.com/collections/table.html";
+    private String dropDownUrl = "https://semantic-ui.com/modules/dropdown.html";
+    private String checkBoxUrl = "https://semantic-ui.com/modules/checkbox.html";
 
     @BeforeMethod
-    public Table setUp(){
+    public void setUp(){
         Configuration.timeout = 8000;
-        open(tableUrl);
-        return new Table(tableName);
+        open(checkBoxUrl);
+
     }
 
 }

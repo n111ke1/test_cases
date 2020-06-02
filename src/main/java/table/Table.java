@@ -8,11 +8,12 @@ import static com.codeborne.selenide.Selenide.*;
 public class Table {
 
 
-
     protected String tableSelector;
+    private String tableName;
 
     public Table(String tableName) {
-        tableSelector = "//div[@class='example'][./*[@class='ui header'][text()='"+tableName+"']]/table";
+        this.tableName = tableName;
+       String tableSelector = "//div[@class='example'][./*[@class='ui header'][text()='"+tableName+"']]/table";
         $x(tableSelector).shouldBe(Condition.visible).scrollTo();
     }
 
@@ -31,9 +32,9 @@ public class Table {
         return notes;
     }
 
-    public void checkWarningsInRow(String tableName, String rowName){
-        String locatorRow = "(//div[@class='example'][./*[@class='ui header'][text()='"+tableName+"']]/table/tbody/tr[./td[text()='"+rowName+"']])";
-        $x(locatorRow).shouldHave(Condition.cssClass("attention"));
+    public void checkWarningsInRow(String rowName){
+        String locatorRow = "(//div[@class='example'][./*[@class='ui header'][text()='"+tableName+"']]/table/tbody/tr[./td[text()='"+rowName+"']]/td/i)";
+        $x(locatorRow).shouldHave(Condition.cssClass("attention").because("this row dont have any warnings"));
     }
 
 

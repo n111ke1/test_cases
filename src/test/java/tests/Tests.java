@@ -1,5 +1,7 @@
 package tests;
 
+import checkBox.CheckBoxPage;
+import dropDown.DropDownPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import table.Table;
@@ -29,8 +31,26 @@ public class Tests extends BaseTest {
 
     @Test
     public void checkWarningIcon(){
+        new Table("Warning").checkWarningsInRow("Jimmy");
+        new Table("Warning").checkWarningsInRow("Jamie");
 
     }
+
+    /**Test 2**/
+    @Test
+    public void selectDropBox(){
+        new DropDownPage().chooseAndCheckInFirstSelector("Female");
+        new DropDownPage().chooseAndCheckInSecondSelector("Male");
+        new DropDownPage().chooseAndCheckInThirdSelector("christian");
+    }
+
+/**Test 3**/
+
+@Test
+    public void checkBoxSliderToggleTest(){
+//    new CheckBoxPage().clickOnCheckBox();
+    new CheckBoxPage().clickOnRadioBtn();
+}
 
 
 
